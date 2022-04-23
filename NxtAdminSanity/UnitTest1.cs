@@ -46,9 +46,7 @@ namespace NxtAdminSanity
             Driver.FindElement(By.XPath("//div[contains(text(),'Grains')]")).Click();
 
             CustomControl.combobox("ContentPlaceHolder1_AllMealsCombo", "Almond");
-           
-
-            Console.WriteLine("line1");
+          
             Assert.Pass();
         }
         [Test]
