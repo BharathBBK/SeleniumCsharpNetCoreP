@@ -35,18 +35,15 @@ namespace NxtAdminSanity
                 Console.WriteLine("Cookie not displayed");
             }
 
-            Driver.FindElement(By.XPath("//input[@name='ctl00$ContentPlaceHolder1$Meal']")).SendKeys("t");
-
+            CustomControl.Entertext(Driver.FindElement(By.XPath("//input[@name='ctl00$ContentPlaceHolder1$Meal']")), "t");
             System.Threading.Thread.Sleep(5000);
-
-            Console.WriteLine(Driver.FindElement(By.XPath("//div[@id='ContentPlaceHolder1_Meal-dropmenu']/div[2]/ul/li[contains(text(),'Tomato')]")).Text);
-
-            Driver.FindElement(By.XPath("//div[@id='ContentPlaceHolder1_Meal-dropmenu']/div[2]/ul/li[contains(text(),'Tomato')]")).Click();
-
-            Driver.FindElement(By.XPath("//div[contains(text(),'Grains')]")).Click();
-
+            CustomControl.Click(Driver.FindElement(By.XPath("//div[@id='ContentPlaceHolder1_Meal-dropmenu']/div[2]/ul/li[contains(text(),'Tomato')]")));
+            CustomControl.Click(Driver.FindElement(By.XPath("//div[contains(text(),'Grains')]")));
             CustomControl.combobox("ContentPlaceHolder1_AllMealsCombo", "Almond");
-          
+            CustomControl.selectbyvalue(Driver.FindElement(By.Id("ContentPlaceHolder1_Add1-awed")),"185");
+            CustomControl.selectbyText(Driver.FindElement(By.Id("ContentPlaceHolder1_Add1-awed")), "Lettuce");
+            CustomControl.selectbyindex(Driver.FindElement(By.Id("ContentPlaceHolder1_Add1-awed")), 2);
+            Console.WriteLine("New line inserted");
             Assert.Pass();
         }
         [Test]
