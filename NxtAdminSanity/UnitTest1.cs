@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using NxtAdminSanity.Pages;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
@@ -48,33 +49,28 @@ namespace NxtAdminSanity
         }
         [Test]
         public void Test2() {
-            Driver.Navigate().GoToUrl("https://demowf.aspnetawesome.com/");
+            Driver.Navigate().GoToUrl("https://nxt-stage.alogent.com/admin/login");
 
-            IWebElement coocki = Driver.FindElement(By.Id("btnCookie"));
+            Driver.FindElement(By.XPath("//label[contains(text(),'Username')]/following-sibling::input")).SendKeys("implementations");
+            Driver.FindElement(By.XPath("//input[@type='password']")).SendKeys("password123");
+            Driver.FindElement(By.XPath("//button[contains(text(),'Login')]")).Click();
 
-            if (coocki.Displayed)
-            {
-                coocki.Click();
-            }
-            else
-            {
-                Console.WriteLine("Cookie not displayed");
-            }
 
-            Driver.FindElement(By.XPath("//input[@name='ctl00$ContentPlaceHolder1$Meal']")).SendKeys("t");
+        }
+        [Test]
+        public void LoginTest() {
 
-            IList<IWebElement> ele = Driver.FindElements(By.XPath("//div[@id='ContentPlaceHolder1_Meal-dropmenu']/div[2]/ul/li"));
+            Driver.Navigate().GoToUrl("https://nxt-stage.alogent.com/admin/login");
+            System.Threading.Thread.Sleep(5000);
 
-            foreach (IWebElement nele in ele) {
+            LoginPage Lpage = new LoginPage();
+            AdminLandingPage ALPage = new AdminLandingPage();
 
-                nele.Click();
-
-                System.Threading.Thread.Sleep(3000);
-
-                Driver.FindElement(By.XPath("//input[@name='ctl00$ContentPlaceHolder1$Meal']")).SendKeys("t");
-            }
-            
-
+            Lpage.EnterUsername("implementations");
+            Lpage.EnterPassword("password123");
+            Lpage.ClickLogin();
+            System.Threading.Thread.Sleep(5000);
+            Assert.That(ALPage.Logout, Is.False, "Logout Button should not display on Landing screen");
         }
     }
 }
