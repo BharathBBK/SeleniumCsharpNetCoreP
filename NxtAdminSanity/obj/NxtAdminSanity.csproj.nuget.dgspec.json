@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\bharathk\\source\\repos\\NxtAdminSanity\\NxtAdminSanity\\NxtAdminSanity.csproj": {}
+    "C:\\Users\\bharathk\\GitHub\\SeleniumCsharpNetCoreP\\NxtAdminSanity\\NxtAdminSanity.csproj": {}
   },
   "projects": {
-    "C:\\Users\\bharathk\\source\\repos\\NxtAdminSanity\\NxtAdminSanity\\NxtAdminSanity.csproj": {
+    "C:\\Users\\bharathk\\GitHub\\SeleniumCsharpNetCoreP\\NxtAdminSanity\\NxtAdminSanity.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bharathk\\source\\repos\\NxtAdminSanity\\NxtAdminSanity\\NxtAdminSanity.csproj",
+        "projectUniqueName": "C:\\Users\\bharathk\\GitHub\\SeleniumCsharpNetCoreP\\NxtAdminSanity\\NxtAdminSanity.csproj",
         "projectName": "NxtAdminSanity",
-        "projectPath": "C:\\Users\\bharathk\\source\\repos\\NxtAdminSanity\\NxtAdminSanity\\NxtAdminSanity.csproj",
+        "projectPath": "C:\\Users\\bharathk\\GitHub\\SeleniumCsharpNetCoreP\\NxtAdminSanity\\NxtAdminSanity.csproj",
         "packagesPath": "C:\\Users\\bharathk\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bharathk\\source\\repos\\NxtAdminSanity\\NxtAdminSanity\\obj\\",
+        "outputPath": "C:\\Users\\bharathk\\GitHub\\SeleniumCsharpNetCoreP\\NxtAdminSanity\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -50,7 +50,7 @@
             },
             "NUnit": {
               "target": "Package",
-              "version": "[3.12.0, )"
+              "version": "[3.13.3, )"
             },
             "NUnit3TestAdapter": {
               "target": "Package",
@@ -60,9 +60,29 @@
               "target": "Package",
               "version": "[0.27.0, )"
             },
+            "Selenium.Support": {
+              "target": "Package",
+              "version": "[4.1.0, )"
+            },
             "Selenium.WebDriver": {
               "target": "Package",
               "version": "[4.1.0, )"
+            },
+            "SpecFlow": {
+              "target": "Package",
+              "version": "[3.9.69, )"
+            },
+            "SpecFlow.Assist.Dynamic": {
+              "target": "Package",
+              "version": "[1.4.2, )"
+            },
+            "SpecFlow.NUnit": {
+              "target": "Package",
+              "version": "[3.9.69, )"
+            },
+            "SpecFlow.Tools.MsBuild.Generation": {
+              "target": "Package",
+              "version": "[3.9.69, )"
             }
           },
           "imports": [
@@ -80,7 +100,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.406\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.407\\RuntimeIdentifierGraph.json"
         }
       }
     }

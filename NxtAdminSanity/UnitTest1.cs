@@ -70,7 +70,9 @@ namespace NxtAdminSanity
             Lpage.EnterPassword("password123");
             Lpage.ClickLogin();
             System.Threading.Thread.Sleep(5000);
-            Assert.That(ALPage.Logout, Is.False, "Logout Button should not display on Landing screen");
+            Assert.That(ALPage.Logout, Is.True, "Logout Button displayed on Landing screen");
+            ALPage.Logoutapp();
+
         }
     }
 }
