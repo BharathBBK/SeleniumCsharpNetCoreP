@@ -33,7 +33,7 @@ namespace NxtAdminSanity
                 coocki.Click();
             }
             else {
-                Console.WriteLine("Cookie not displayed");
+                Console.WriteLine("Cookie is not displayed");
             }
 
             CustomControl.Entertext(Driver.FindElement(By.XPath("//input[@name='ctl00$ContentPlaceHolder1$Meal']")), "t");
