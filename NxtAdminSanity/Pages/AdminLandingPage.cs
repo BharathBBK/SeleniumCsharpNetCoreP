@@ -7,8 +7,14 @@ namespace NxtAdminSanity.Pages
 {
     class AdminLandingPage : Driverhelper
     {
+        private IWebDriver _driverHelper;
 
-        IWebElement BtnLogout => Driver.FindElement(By.XPath("//span[contains(text(),'Logout')]"));
+        public AdminLandingPage(IWebDriver driverHelper)
+        {
+            _driverHelper = driverHelper;
+        }
+
+        IWebElement BtnLogout => _driverHelper.FindElement(By.XPath("//span[contains(text(),'Logout')]"));
 
         public bool Logout() => BtnLogout.Displayed;
 

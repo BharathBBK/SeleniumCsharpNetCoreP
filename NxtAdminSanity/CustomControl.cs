@@ -7,10 +7,21 @@ using System.Text;
 
 namespace NxtAdminSanity
 {
-    public class CustomControl : Driverhelper
+    public class CustomControl 
     {
 
-        public static void combobox(String CtrlName, String InputValue) {
+        private IWebDriver Driver;
+        
+
+        public CustomControl(IWebDriver driver) {
+
+            Driver = driver;
+        
+        }
+
+        
+
+        public void combobox(String CtrlName, String InputValue) {
             IWebElement Combo = Driver.FindElement(By.XPath($"//input[@id='{CtrlName}-awed']"));
             Combo.Clear();
             Combo.SendKeys(InputValue);
@@ -18,24 +29,24 @@ namespace NxtAdminSanity
             Driver.FindElement(By.XPath($"//div[@id='{CtrlName}-dropmenu']//li[contains(text(),'{InputValue}')]")).Click();
         }
 
-        public static void Entertext(IWebElement webElement, String value) {
+        public void Entertext(IWebElement webElement, String value) {
 
             webElement.SendKeys(value);
         }
 
-        public static void Click(IWebElement webelement) {
+        public void Click(IWebElement webelement) {
 
             webelement.Click();
         }
 
-        public static void selectbyvalue(IWebElement ele, String value) {
+        public void selectbyvalue(IWebElement ele, String value) {
 
             SelectElement select = new SelectElement(ele);
             select.SelectByValue(value);
 
         }
 
-        public static void selectbyText(IWebElement ele, String text)
+        public void selectbyText(IWebElement ele, String text)
         {
 
             SelectElement select = new SelectElement(ele);
@@ -43,7 +54,7 @@ namespace NxtAdminSanity
 
         }
 
-        public static void selectbyindex(IWebElement ele, int index)
+        public void selectbyindex(IWebElement ele, int index)
         {
 
             SelectElement select = new SelectElement(ele);

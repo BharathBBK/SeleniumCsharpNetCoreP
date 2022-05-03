@@ -9,16 +9,30 @@ using TechTalk.SpecFlow.Assist;
 namespace NxtAdminSanity.Steps
 {
    [Binding]
-    public class LoginSteps : Driverhelper
+    public class LoginSteps 
     {
 
-        LoginPage Lpage = new LoginPage();
-        AdminLandingPage ALPage = new AdminLandingPage();
+        private Driverhelper _driverHelper;
+
+        LoginPage Lpage;
+        AdminLandingPage ALPage;
+
+        public LoginSteps(Driverhelper driverHelper) {
+
+            _driverHelper = driverHelper;
+
+            Lpage = new LoginPage(_driverHelper.Driver);
+            ALPage = new AdminLandingPage(_driverHelper.Driver);
+
+
+        }
+
 
         [Given(@"user is on login screen")]
         public void GivenUserIsOnLoginScreen()
         {
-            Driver.Navigate().GoToUrl("https://nxt-stage.alogent.com/admin/login");
+            _driverHelper.Driver.Navigate().GoToUrl("https://nxt-stage.alogent.com/admin/login");
+            
         }
 
         [Given(@"Enter valid username and Password")]

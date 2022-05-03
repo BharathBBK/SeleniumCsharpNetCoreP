@@ -9,14 +9,14 @@ using System.Collections.ObjectModel;
 
 namespace NxtAdminSanity
 {
-    public class Tests : Driverhelper
+    public class Tests 
     {
 
+        public IWebDriver Driver;
         [SetUp]
         public void Setup()
         {
             Console.WriteLine("setup");
-
             Driver = new ChromeDriver();
         }
 
@@ -28,6 +28,9 @@ namespace NxtAdminSanity
 
             IWebElement coocki = Driver.FindElement(By.Id("btnCookie"));
 
+            CustomControl CC = new CustomControl(Driver);
+
+
             if (coocki.Displayed)
             {
                 coocki.Click();
@@ -36,14 +39,14 @@ namespace NxtAdminSanity
                 Console.WriteLine("Cookie is not displayed");
             }
 
-            CustomControl.Entertext(Driver.FindElement(By.XPath("//input[@name='ctl00$ContentPlaceHolder1$Meal']")), "t");
+            CC.Entertext(Driver.FindElement(By.XPath("//input[@name='ctl00$ContentPlaceHolder1$Meal']")), "t");
             System.Threading.Thread.Sleep(5000);
-            CustomControl.Click(Driver.FindElement(By.XPath("//div[@id='ContentPlaceHolder1_Meal-dropmenu']/div[2]/ul/li[contains(text(),'Tomato')]")));
-            CustomControl.Click(Driver.FindElement(By.XPath("//div[contains(text(),'Grains')]")));
-            CustomControl.combobox("ContentPlaceHolder1_AllMealsCombo", "Almond");
-            CustomControl.selectbyvalue(Driver.FindElement(By.Id("ContentPlaceHolder1_Add1-awed")),"185");
-            CustomControl.selectbyText(Driver.FindElement(By.Id("ContentPlaceHolder1_Add1-awed")), "Lettuce");
-            CustomControl.selectbyindex(Driver.FindElement(By.Id("ContentPlaceHolder1_Add1-awed")), 2);
+            CC.Click(Driver.FindElement(By.XPath("//div[@id='ContentPlaceHolder1_Meal-dropmenu']/div[2]/ul/li[contains(text(),'Tomato')]")));
+            CC.Click(Driver.FindElement(By.XPath("//div[contains(text(),'Grains')]")));
+            CC.combobox("ContentPlaceHolder1_AllMealsCombo", "Almond");
+            CC.selectbyvalue(Driver.FindElement(By.Id("ContentPlaceHolder1_Add1-awed")),"185");
+            CC.selectbyText(Driver.FindElement(By.Id("ContentPlaceHolder1_Add1-awed")), "Lettuce");
+            CC.selectbyindex(Driver.FindElement(By.Id("ContentPlaceHolder1_Add1-awed")), 2);
             Console.WriteLine("New line inserted");
             Assert.Pass();
         }
@@ -60,11 +63,12 @@ namespace NxtAdminSanity
         [Test]
         public void LoginTest() {
 
+
             Driver.Navigate().GoToUrl("https://nxt-stage.alogent.com/admin/login");
             System.Threading.Thread.Sleep(5000);
 
-            LoginPage Lpage = new LoginPage();
-            AdminLandingPage ALPage = new AdminLandingPage();
+            LoginPage Lpage = new LoginPage(Driver);
+            AdminLandingPage ALPage = new AdminLandingPage(Driver);
 
             Lpage.EnterUsername("implementations");
             Lpage.EnterPassword("password123");

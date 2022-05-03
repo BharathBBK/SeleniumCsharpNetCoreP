@@ -8,21 +8,23 @@ using TechTalk.SpecFlow;
 namespace NxtAdminSanity.Hooks
 {
     [Binding]
-    public sealed class Hooks1 : Driverhelper
+    public sealed class Hooks1 
     {
-        // For additional details on SpecFlow hooks see http://go.specflow.org/doc-hooks
+
+        private Driverhelper _driverHelper;
+
+        public Hooks1(Driverhelper driverHelper) => _driverHelper = driverHelper;
 
         [BeforeScenario]
         public void BeforeScenario()
         {
-            Driver = new ChromeDriver();
+            _driverHelper.Driver = new ChromeDriver();
         }
-
         [AfterScenario]
         public void AfterScenario()
         {
             Console.WriteLine("Browser closed successfully");
-            Driver.Quit();
+            _driverHelper.Driver.Quit();
         }
     }
 }

@@ -7,6 +7,6 @@ namespace NxtAdminSanity
 {
   public class Driverhelper
     {
-        public static IWebDriver Driver { get; set; }
+        public  IWebDriver Driver { get; set; }
     }
 }
