@@ -32,6 +32,7 @@ namespace NxtAdminSanity.Steps
         public void GivenUserIsOnLoginScreen()
         {
             _driverHelper.Driver.Navigate().GoToUrl("https://nxt-stage.alogent.com/admin/login");
+            _driverHelper.Driver.Manage().Window.Maximize();
             
         }
 
@@ -57,7 +58,7 @@ namespace NxtAdminSanity.Steps
         {
             Assert.That(ALPage.Logout, Is.True, "Logout Button displayed on Landing screen");
 
-            ALPage.Logoutapp();
+            //ALPage.Logoutapp();
 
             System.Threading.Thread.Sleep(5000);
         }

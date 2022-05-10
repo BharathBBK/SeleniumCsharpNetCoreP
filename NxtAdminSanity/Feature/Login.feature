@@ -1,5 +1,5 @@
 ﻿Feature: Login
-	Simple calculator for adding two numbers
+	
 
 @mytag
 Scenario: Nxt Admin Login validation
@@ -9,3 +9,4 @@ Scenario: Nxt Admin Login validation
 	      |implementations | password123     |	       
 	When user click on login button
 	Then user should routed to admin application
+
